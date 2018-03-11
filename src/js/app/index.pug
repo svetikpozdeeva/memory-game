@@ -1,0 +1,4 @@
+.game_wrapper
+	StartGame(v-if="gameStatus === 'start'", v-on:changeStatus = "changeStatus")
+	Game(v-if="gameStatus === 'game'", :cards = "cards", v-on:calculatePoints = "calculatePoints", v-on:changeStatus = "changeStatus")
+	EndGame(v-if="gameStatus === 'end'", :points = "points", v-on:changeStatus = "changeStatus")

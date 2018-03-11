@@ -1,0 +1,7 @@
+.end-game_container
+		img(src="/img/EndGame.png")
+		.end-game_head
+			h1 {{ points > 0 ? 'Поздравляем!' : 'Вам следует тренировать память! Попробуйте Еще!' }}
+			h1 Ваш итоговый счет: {{ points }}
+		.end-game_btn-container
+			button(@click = "retryGame()", data-tid="EndGame-retryGame") Еще раз

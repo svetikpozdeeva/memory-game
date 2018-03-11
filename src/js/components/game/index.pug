@@ -1,0 +1,17 @@
+.game_field
+	.game_start-container
+		.game_start-btn(@click="startGame()", data-tid="Menu-newGame") Начать заново
+		.game_start-points(data-tid="Menu-scores") Очки: {{ totalPoints }}
+	.game_container(data-tid="Deck")
+		.block(v-for="card in cardsGame", data-tid="Card")
+			img.card-image(
+				v-if="backSide && !card.isVisible",
+				:src="backCardImage",
+				@click="rollCard(card)",
+				:class="{ 'card-hidden': card.hidden}",
+				data-tid="Card-flipped")
+			img.card-image(
+				v-if="!(backSide && !card.isVisible)",
+				:src="card.image",
+				@click="rollCard(card)",
+				:class="{ 'card-hidden': card.hidden}")
